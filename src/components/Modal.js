@@ -9,6 +9,9 @@ export default function Modal({ isCorrect, turn, solution }) {
             <h1>You Win!</h1>
             <p className="solution">{solution}</p>
             <p>You found the solution in {turn} guess :)</p>
+            <button type="reset" onClick={newGame}>
+              Play Again?
+            </button>
           </div>
         )}
       </div>
@@ -21,6 +24,9 @@ export default function Modal({ isCorrect, turn, solution }) {
           <h1>You Win!</h1>
           <p className="solution">{solution}</p>
           <p>You found the solution in {turn} guesses :)</p>
+          <button type="reset" onClick={newGame}>
+            Play Again?
+          </button>
         </div>
       )}
       {!isCorrect && (
@@ -29,8 +35,15 @@ export default function Modal({ isCorrect, turn, solution }) {
           <p>Answer:</p>
           <p className="solution">{solution}</p>
           <p>Better luck next time!</p>
+          <button type="reset" onClick={newGame}>
+            Play Again?
+          </button>
         </div>
       )}
     </div>
   );
 }
+
+const newGame = () => {
+  window.location.reload();
+};
