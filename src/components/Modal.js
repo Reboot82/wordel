@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Modal({ isCorrect, turn, solution }) {
+
+  const handleKeyup = () => {
+    newGame();
+  }
+
+  useEffect(() => {
+    window.addEventListener("keyup", handleKeyup);
+  })
+
   if (turn === 1) {
     return (
       <div className="modal">

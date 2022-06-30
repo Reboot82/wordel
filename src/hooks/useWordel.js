@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const useWordel = (solution) => {
 
@@ -8,6 +8,24 @@ const useWordel = (solution) => {
     const [history, setHistory] = useState([])
     const [isCorrect, setIsCorrect] = useState(false)
     const [usedKeys, setUsedKeys] = useState({})
+
+    // var allSolutions = [];
+
+    
+
+    // useEffect(() => {
+    //     fetch("http://localhost:3001/solutions")
+    //       .then((res) => res.json())
+    //       .then((json) => {
+    //         for(let i = 0; i < json.length; i++){
+    //             const possibleSolution = json[i].word;
+    //             // addSolution(possibleSolution.word);
+    //             allSolutions.push = possibleSolution.word;
+    //             console.log(allSolutions[i], json[i].word);
+    //         }
+    //       });
+    //     //   console.log(allSolutions);
+    //   });
 
     const formatGuess = () => {
         let solutionArray = [...solution]
@@ -79,17 +97,20 @@ const useWordel = (solution) => {
 
         if(key === 'Enter'){
             if(turn > 5){
-                console.log('you used all your guesses')
+                alert('you used all your guesses')
                 return
             }
             if(history.includes(currentGuess)){
-                console.log('already tried it')
+                alert('already tried it')
                 return
             }
             if(currentGuess.length !== 5){
-                console.log('word must be 5 letters long')
+                alert('word must be 5 letters long')
                 return
             }
+            // for(allSolutions){
+
+            // }
             const  formatted = formatGuess()
             addNewGuess(formatted)
         }
