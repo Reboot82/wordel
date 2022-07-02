@@ -96,19 +96,21 @@ const useWordel = (solution) => {
   const handleKeyup = ({ key }) => {
     if (key === "Enter") {
       if (turn > 5) {
-        alert("you used all your guesses");
+        alert("You used all your guesses");
         return;
       }
       if (history.includes(currentGuess)) {
-        alert("already tried it");
+        alert("You already tried this word");
+        setCurrentGuess("");
         return;
       }
       if (currentGuess.length !== 5) {
-        alert("word must be 5 letters long");
+        alert("Word must be 5 letters long");
         return;
       }
       if (!howBoutThis.includes(currentGuess)) {
-        alert("word not in database");
+        alert("Word not found in database");
+        setCurrentGuess("");
         return;
       }
       const formatted = formatGuess();
