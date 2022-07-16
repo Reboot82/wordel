@@ -18,6 +18,7 @@ export default function Modal({ isCorrect, turn, solution }) {
             <h1>You Win!</h1>
             <p className="solution">{solution}</p>
             <p>You found the solution in {turn} guess :)</p>
+            <p>Congratulations, you lucky ducky!</p>
             <button type="reset" onClick={newGame}>
               Play Again?
             </button>

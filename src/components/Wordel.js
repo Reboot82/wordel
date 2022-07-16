@@ -26,7 +26,7 @@ export default function Wordel({ solution }) {
 
   return (
     <div>
-      {/* <div>solution - {solution}</div> */}
+      <div>solution - {solution}</div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypad usedKeys={usedKeys} />
       {showModal && <Modal isCorrect={isCorrect} turn={turn} solution={solution} />}

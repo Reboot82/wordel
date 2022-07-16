@@ -8,23 +8,50 @@ const useWordel = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [usedKeys, setUsedKeys] = useState({});
 
-//   const [allSolutions, setAllSolutions] = useState([]);
+  // const [allSolutions, setAllSolutions] = useState([]);
 
-  var howBoutThis = [];
+  // var possibleAnswers = [];
 
-  useEffect(() => {
-    fetch("http://localhost:3001/solutions")
-      .then((res) => res.json())
-      .then((json) => {
-        var solutionsArray = [];
-        for (let i = 0; i < json.length; i++) {
-          let singleSolution = json[i].word;
-          solutionsArray.push(singleSolution);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        howBoutThis = solutionsArray;
-      });
-  });
+  // useEffect(() => {
+  //   fetch("http://localhost:3001/solutions")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       var solutionsArray = [];
+  //       for (let i = 0; i < json.length; i++) {
+  //         let singleSolution = json[i].word;
+  //         solutionsArray.push(singleSolution);
+  //       }
+  //       // eslint-disable-next-line react-hooks/exhaustive-deps
+  //       possibleAnswers = solutionsArray;
+  //     });
+  // });
+
+
+  //   YOU NEED TO FIGURE OUT HOW TO MAKE THIS WORK. OR MAYBE JUST FETCH THE SOLUTIONS 
+      //       ONCE UPON OPENING THE PAGE, THEN PASS IT THROUGH AS NECESSARY?
+  // useEffect(() => {
+  //   const url =
+  //     "https://api.jsonbin.io/v3/b/62d3278bb34ef41b73c3c6b7";
+  //   fetch(url, {
+  //     method: "GET",
+  //     withCredentials: true,
+  //     headers: {
+  //       "X-Master-Key":
+  //         "$2b$10$EeeXZRIaCulbm1svTUCAv.s/jD95poKdvMc63Wwsp4IGJ3NirKwI.",
+  //       "X-BIN-META": false,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then(function (data){
+  //       var solutionsArray = [];
+  //       for (let i = 0; i < data.solutions.length; i++) {
+  //         let singleSolution = data.solutions[i].word;
+  //         solutionsArray.push(singleSolution);
+  //       }
+  //       // eslint-disable-next-line react-hooks/exhaustive-deps
+  //       possibleAnswers = solutionsArray;
+  //     })
+  // });
 
   const formatGuess = () => {
     let solutionArray = [...solution];
@@ -108,11 +135,16 @@ const useWordel = (solution) => {
         alert("Word must be 5 letters long");
         return;
       }
-      if (!howBoutThis.includes(currentGuess)) {
-        alert("Word not found in database");
-        setCurrentGuess("");
-        return;
-      }
+
+      //   YOU NEED TO FIGURE OUT HOW TO MAKE THIS WAIT. OR MAYBE JUST FETCH THE SOLUTIONS 
+      //       ONCE UPON OPENING THE PAGE, THEN PASS IT THROUGH AS NECESSARY?
+      // if (!possibleAnswers.includes(currentGuess)) {
+      //   console.log(possibleAnswers);
+      //   console.log(currentGuess);
+      //   alert("Word not found in database");
+      //   setCurrentGuess("");
+      //   return;
+      // }
       const formatted = formatGuess();
       addNewGuess(formatted);
     }
